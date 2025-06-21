@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashini M | Python Full Stack Developer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--dark);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            margin-top: 5px;
+        }
+
+        .skill-level {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+            left: 5px;
+            top: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            left: 0;
+            top: 5px;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-4">
+                    <!-- Logo -->
+                    <div>
+                        <a href="#" class="flex items-center py-5 px-2 text-gray-700">
+                            <span class="font-bold text-indigo-600 text-xl">SM</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">About</a>
+                    <a href="#education" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">Education</a>
+                    <a href="#skills" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">Skills</a>
+                    <a href="#projects" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">Projects</a>
+                    <a href="#certifications" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">Certifications</a>
+                    <a href="#contact" class="nav-link py-5 px-3 text-gray-700 hover:text-indigo-600">Contact</a>
+                </div>
+                <!-- Mobile button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
+            <a href="#education" class="block py-2 px-4 text-sm hover:bg-gray-200">Education</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-200">Skills</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-200">Projects</a>
+            <a href="#certifications" class="block py-2 px-4 text-sm hover:bg-gray-200">Certifications</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <!-- Placeholder for image - user should replace src with actual image path -->
+                        <img src="shashini.jpeg" alt="Shashini M" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Shashini M</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mb-6">Python Full Stack Developer</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Passionate and detail-oriented Python Developer with expertise in developing scalable applications and implementing machine learning solutions. Proficient in Python, SQL, and web technologies. Experienced in deep learning, image processing, and automation. Strong problem-solving skills and a commitment to continuous learning.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                   <img src="gd0djh82.png",width="5px"/>
+
+                        <a href="#contact" class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition duration-300">Contact Me</a>
+                        <a href="#projects" class="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg font-medium hover:bg-indigo-50 transition duration-300">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Education</h2>
+            
+            <div class="timeline space-y-8 pl-8 relative">
+                <!-- Master's Degree -->
+                <div class="timeline-item relative pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-indigo-600">Master of Computer Applications (MCA)</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">2023 - 2025</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">Jamal Mohammed College (Autonomous), Tiruchirappalli | Bharathidasan University</h4>
+                    </div>
+                </div>
+                
+                <!-- Bachelor's Degree -->
+                <div class="timeline-item relative pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-indigo-600">Bachelor of Computer Applications (BCA)</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">2020 - 2023</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">H.H The Rajah's College (Autonomous), Pudukkottai | Bharathidasan University</h4>
+                        <p class="text-gray-600">CGPA: 8.62 (A+)</p>
+                    </div>
+                </div>
+                
+                <!-- Higher Secondary -->
+                <div class="timeline-item relative pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-indigo-600">Higher Secondary (HSC - Bio Maths)</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Completed</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">Govt HR Sec School, VadaKadu</h4>
+                        <p class="text-gray-600">Percentage: 63%</p>
+                    </div>
+                </div>
+                
+                <!-- SSLC -->
+                <div class="timeline-item relative pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-indigo-600">SSLC (10th Standard)</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Completed</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-700 mb-2">Govt HR Sec School, VadaKadu</h4>
+                        <p class="text-gray-600">Percentage: 80%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        Programming Languages
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Python</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Java</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">JavaScript</span>
+                                <span class="text-gray-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Web Technologies -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Web Technologies
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">HTML/CSS</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">React.js</span>
+                                <span class="text-gray-500">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Spring Boot</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                        Other Skills
+                    </h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">SQL</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Machine Learning</span>
+                                <span class="text-gray-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">Git</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between">
+                                <span class="font-medium">YOLO, OpenCV</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Project Experience</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Main Project -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-indigo-600">Smart Facial Recognition for Skin Type Analysis</h3>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Python, Deep Learning</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Implemented deep learning techniques for facial recognition and skin analysis using Python and YOLO. Developed a web interface using HTML, CSS, and MySQL for storing and retrieving user data. Integrated image processing techniques to provide accurate skincare recommendations.
+                    </p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2">Python</span>
+                        <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2">YOLO</span>
+                        <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2">OpenCV</span>
+                        <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2">HTML/CSS</span>
+                        <span class="inline-block bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">MySQL</span>
+                    </div>
+                </div>
+                
+                <!-- Internship Projects -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-4">Internship Experience</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-gray-700">Artificial Intelligence Internship</h4>
+                        <p class="text-gray-600 mb-2">NoviTech R&D Private Limited (1 Month)</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-gray-700">Machine Learning Internship</h4>
+                        <p class="text-gray-600">NoviTech R&D Private Limited (1 Month)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Certifications</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Nptel Certification -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Nptel</h3>
+                            <p class="text-gray-600">Privacy and Security in Online Social Media</p>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Score: 66%</span>
+                    </div>
+                </div>
+                
+                <!-- IBM Certification -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">IBM</h3>
+                            <p class="text-gray-600">Machine Learning & SQL</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CEC Certification -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">CEC</h3>
+                            <p class="text-gray-600">Programming In Python</p>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Score: 56%</span>
+                    </div>
+                </div>
+                
+                <!-- Udemy Certification -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Udemy</h3>
+                            <p class="text-gray-600">Java For Beginners</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Besant Technologies -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">Besant Technologies</h3>
+                            <p class="text-gray-600">Python FullStack Developer course</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold text-indigo-600 mb-6">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Email</h4>
+                                <a href="mailto:shashinimca@gmail.com" class="text-gray-600 hover:text-indigo-600">shashinimca@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Phone</h4>
+                                <a href="tel:+918807366468" class="text-gray-600 hover:text-indigo-600">+91 8807366468</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">Address</h4>
+                                <p class="text-gray-600">1631, Alangudi, Pudukkottai</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-700">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/shashini-m-05a36131a" target="_blank" class="text-gray-600 hover:text-indigo-600">linkedin.com/in/shashini-m-05a36131a</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-xl font-bold text-indigo-600 mb-6">Send Me a Message</h3>
+                    
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-indigo-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Shashini M</h3>
+                    <p class="text-indigo-200">Python Full Stack Developer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="mailto:shashinimca@gmail.com" class="text-indigo-200 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </a>
+                    <a href="tel:+918807366468" class="text-indigo-200 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/shashini-m-05a36131a" target="_blank" class="text-indigo-200 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-indigo-800 text-center text-indigo-300 text-sm">
+                <p>© 2023 Shashini M. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector('.mobile-menu').classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Update active state
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Update active navigation link based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
